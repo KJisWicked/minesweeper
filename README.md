@@ -4,8 +4,16 @@ This ia a mini minesweeper program built with Java.
 
 ## Spec
 
-- Java/JDK 21
-- Maven
+- Build Tool: Apache Maven
+- Testing Framework: JUnit 5
+- Java Version: 21 (LTS)
+
+## Supported Platforms:
+
+- Windows (all versions with Java 21+)
+- macOS (all versions with Java 21+)
+- Linux (all distributions with Java 21+)
+- Any other OS with JVM support
 
 ## Project Structure
 
@@ -67,7 +75,7 @@ src/test/java/minesweeper/
 There's no specific setup as it is a very basic Java + Maven Project. You can just do the following
 
 1. Clone the project.
-2. Open via your IDE either with IntelliJ IDEA or Eclipse.
+2. Open via your IDE either with IntelliJ IDEA (Recommended) or Eclipse.
 3. Build the project using the IDE and begin the game.
 
 ### Game Instructions
