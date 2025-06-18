@@ -1,6 +1,6 @@
 # Minesweeper
 
-This ia a mini minesweeper program built with Java
+This ia a mini minesweeper program built with Java.
 
 ## Spec
 
