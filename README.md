@@ -77,6 +77,7 @@ There's no specific setup as it is a very basic Java + Maven Project. You can ju
 4. Make moves: Enter coordinates like "A1", "B2", etc.
 5. Win condition: Reveal all non-mine squares
 6. Lose condition: Reveal a mine
+7. Whenever you win or lose, you can click any key to play again.
 
 ### Sample Gameplay
 
