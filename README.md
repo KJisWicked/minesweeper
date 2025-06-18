@@ -11,7 +11,8 @@ This ia a mini minesweeper program built with Java
 
 ### Main Package
 
-This is an overview of the project structure which adopts an MVC (Model-View-Controller) approach.
+This is an overview of the project structure which adopts an MVC (Model-View-Controller) but using OOP & Solid
+Principles.
 
 ### Class Responsibilities
 
