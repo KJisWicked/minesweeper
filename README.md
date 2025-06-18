@@ -50,7 +50,7 @@ src/main/java/minesweeper/
 
 The test package is also located within the project but in another directory `src/test/`.
 
-For the tests, I have use a combination of both `JUnit` and `Mockito` to write my Unit & End-to-End test cases.
+For the tests, I have used a combination of both `JUnit` and `Mockito` to write my Unit & End-to-End test cases.
 
 ```
 src/test/java/minesweeper/
