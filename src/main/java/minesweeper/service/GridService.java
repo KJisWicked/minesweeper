@@ -13,23 +13,6 @@ public class GridService {
             {1, -1}, {1, 0}, {1, 1}
     };
 
-    public int revealCell(Grid grid, int row, int column) {
-        Cell cell = grid.getCell(row, column);
-        if (cell == null || cell.isRevealed()) {
-            return 0;
-        }
-
-        cell.setRevealed(true);
-        int revealCount = 1;
-
-        // If cell has no adjacent mines, reveal all adjacent cells via flood fill.
-        if (!cell.isMine() && cell.getAdjacentMineCount() == 0) {
-            revealCount += floodFill(grid, row, column);
-        }
-
-        return revealCount;
-    }
-
     public void calculateAdjacentMineCounts(Grid grid) {
         for (int row = 0; row < grid.getSize(); row++) {
             for (int column = 0; column < grid.getSize(); column++) {
@@ -47,8 +30,8 @@ public class GridService {
         for (int[] direction : DIRECTIONS) {
             int newRow = row + direction[0];
             int newColumn = column + direction[1];
-            Cell adjacentCell = grid.getCell(newRow, newColumn);
-            if (adjacentCell != null && adjacentCell.isMine()) {
+            Cell cell = grid.getCell(newRow, newColumn);
+            if (cell != null && cell.isMine()) {
                 count++;
             }
         }
@@ -56,6 +39,23 @@ public class GridService {
         return count;
     }
 
+    public int revealCell(Grid grid, int row, int column) {
+        Cell cell = grid.getCell(row, column);
+        if (cell == null || cell.isRevealed()) {
+            return 0;
+        }
+
+        cell.setRevealed(true);
+        int revealCount = 1;
+
+        // If cell has no adjacent mines, reveal all adjacent cells via flood fill.
+        if (!cell.isMine() && cell.getAdjacentMineCount() == 0) {
+            revealCount += floodFill(grid, row, column);
+        }
+
+        return revealCount;
+    }
+    
     private int floodFill(Grid grid, int startRow, int startColumn) {
         Queue<int[]> queue = new LinkedList<>();
         queue.offer(new int[]{startRow, startColumn});
@@ -70,12 +70,12 @@ public class GridService {
                 int newRow = row + direction[0];
                 int newColumn = column + direction[1];
 
-                Cell adjacentCell = grid.getCell(newRow, newColumn);
-                if (adjacentCell != null && !adjacentCell.isRevealed() && !adjacentCell.isMine()) {
-                    adjacentCell.setRevealed(true);
+                Cell cell = grid.getCell(newRow, newColumn);
+                if (cell != null && !cell.isRevealed() && !cell.isMine()) {
+                    cell.setRevealed(true);
                     revealCount++;
 
-                    if (adjacentCell.getAdjacentMineCount() == 0) {
+                    if (cell.getAdjacentMineCount() == 0) {
                         queue.offer(new int[]{newRow, newColumn});
                     }
                 }
